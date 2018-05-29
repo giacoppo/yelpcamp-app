@@ -1,4 +1,4 @@
-var reload = require('reload');
+// var reload = require('reload');
 
 var express         = require('express'),
     app             = express(),
@@ -58,7 +58,7 @@ app.use('/', indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-reload(app);
+// reload(app);
 
 app.listen(port, function() {
     console.log('The YelpCamp app runs on PORT ' + port);
