@@ -81,3 +81,21 @@ body {
 .no-cssanimations .slideshow li {
 	opacity: 1;
 }
+
+@media (min-width: 100px) and (max-width: 575px) {
+    #landing-header h1 {
+        font-size: 4.5rem;
+    }
+    #landing-header a {
+        font-size: 3.0rem;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    #landing-header h1 {
+        font-size: 2.5rem;
+    }
+    #landing-header a {
+        font-size: 1.25rem;
+    }
+}
