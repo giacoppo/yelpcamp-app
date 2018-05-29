@@ -19,6 +19,7 @@ var commentRoutes       = require('./routes/comments'),
     indexRoutes         = require('./routes/index')
 
 var url = process.env.DATABASEURL || 'mongodb://localhost/yelp_camp_v6';
+var sessionSecret = process.env.SESSION_SECRET || 'This is a backup secret';
 mongoose.connect(url);
 
 var port = process.env.PORT || 3000;
