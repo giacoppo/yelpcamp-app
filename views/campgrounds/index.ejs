@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+
+<!-- <% if(currentUser && currentUser.isAdmin) { %>
+<div class="container">
+    <div class="col-sm-12 alert alert-success alert-dismissible fade show" role="alert">
+        You're an admin!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+<% } %> -->
+
+<main role="main" class="mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 ">
+                <header class="jumbotron mb-3">
+                    <div class="container">
+                        <h1>Welcome to YelpCamp!</h1>
+                        <p>View our hand-picked campgrounds from all over the world</p>
+                        <p>
+                            <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
+                        </p>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+        <% if(currentUser) { %>
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="" action="/campgrounds" method="GET">
+                    <div class="input-group">
+                        <input class="form-control" type="text" name="search" placeholder="Search for a Campground...">
+                        <div class="input-group-append">
+                            <input class="btn btn-success" type="submit" value="Search">
+                        </div>
+                    </div>
+                </form>
+                <!-- <p class="warning"><%= noMatch %></p> -->
+                <% if(noMatch) { %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%= noMatch %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <% } %>
+            </div>
+        </div>
+        <% } %>
+
+        <% if(!currentUser) { %>
+        <% } else { %>
+        <div class="row">
+            <% campgrounds.forEach(function(campground) { %>
+                <div class="col-md-3 col-sm-6 text-center">
+                    <div class="card mb-4">
+                        <div class="card-img-wrap">
+                            <img class="card-img-top" src="<%= campground.image %>">
+                        </div>
+                        <div class="card-body p-xs-4 p-sm-3 p-md-2 pb-md-3 p-lg-3 p-xl-4">
+                            <h6><%= campground.name %></h6>
+                            <p class="mb-0">
+                                <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        <% } %>
+    </div>
+</main>
+
+<% include ../partials/footer %>

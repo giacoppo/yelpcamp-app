@@ -1,0 +1,71 @@
+/* .form-group .form-control {
+    margin-bottom: .5rem;
+} */
+
+button:focus {
+    outline: none;
+}
+
+button[aria-expanded=true] {
+    background-color: #efefef;
+}
+
+button.navbar-toggler:hover {
+    background-color: #efefef;
+}
+
+textarea {
+    resize: none;
+}
+
+.card-body.custom p:last-of-type {
+    margin-bottom: 0;
+}
+
+p.card-text {
+    width: 100%;
+}
+
+.card-body.custom {
+    padding-bottom: 0;
+}
+
+.card-body.custom:last-child {
+    padding-bottom: 1.25rem;
+}
+
+.card-text.author {
+    color: #007bff;
+}
+
+.card-text.author a {
+    text-decoration: underline;
+}
+
+@media (min-width: 576px) {
+    .card-img-wrap {
+        max-height: 158px;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-img-wrap {
+        max-height: 98px;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-img-wrap {
+        max-height: 138px;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-img-wrap {
+        max-height: 167px;
+        overflow: hidden;
+    }
+}
