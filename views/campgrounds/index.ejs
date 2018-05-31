@@ -61,7 +61,8 @@
                             <img class="card-img-top" src="<%= campground.image %>">
                         </div>
                         <div class="card-body p-xs-4 p-sm-3 p-md-2 pb-md-3 p-lg-3 p-xl-4">
-                            <h6><%= campground.name %></h6>
+                            <h6 class="mb-0"><%= campground.name %></h6>
+                            <p class="mb-1"><small class="text-secondary"><%= moment(campground.createdAt).locale('nl').format('D MMM YYYY') %></small></p>
                             <p class="mb-0">
                                 <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
                             </p>
@@ -74,7 +75,7 @@
 
         <% if(currentUser) { %>
         <nav aria-label="Page navigation"></nav>
-            <% if (pages && pages > 0) { %>
+            <% if (pages && pages > 1) { %>
             <ul class="pagination justify-content-center mb-0">
                 <% if (current == 1) { %>
                 <li class="page-item disabled">

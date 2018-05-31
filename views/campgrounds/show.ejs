@@ -29,7 +29,7 @@
                         <h4 class="card-text float-right text-muted mt-1"><small>$<%= campground.price %>/night</small></h4>
                         <p class="card-text float-left"><%= campground.desc %></p>
                         <p class="card-text author float-left">
-                            <small><em>Submitted by: <a href="/users/<%= campground.author.id %>"> <%= campground.author.username %></a>, <%= moment(campground.createdAt).fromNow() %></em></small>
+                            <small><em>Submitted by: <a href="/users/<%= campground.author.id %>"> <%= campground.author.username %></a>, <%= moment(campground.createdAt).locale('nl').format('D MMM YYYY, kk:mm') %></em></small>
                         </p>
                         <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
                         <a class="btn btn-sm btn-primary float-left" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
@@ -55,7 +55,7 @@
                     <div class="card-body custom">
                         <p class="mb-0">
                             <strong><%= comment.author.username %></strong>
-                            <span class="float-right"><%= moment(comment.createdAt).fromNow() %></span>
+                            <span class="float-right"><%= moment(campground.createdAt).locale('nl').format('D MMM YYYY, kk:mm') %></span>
                         </p>
                         <p class="mt-0"><%= comment.text %></p>
                         <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>

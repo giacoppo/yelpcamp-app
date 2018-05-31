@@ -34,7 +34,7 @@ router.get('/', function(req, res) {
     if(req.query.search) {
         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
         // Get all campgrounds from DB
-        Campground.find({name: regex}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
+        Campground.find({name: regex}).sort({createdAt: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
             Campground.count({name: regex}).exec(function (err, count) {
                 if(err) {
                     console.log(err);
@@ -56,7 +56,7 @@ router.get('/', function(req, res) {
         });
     } else {
         // Get all campgrounds from DB
-        Campground.find({}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
+        Campground.find({}).sort({createdAt: -1}).skip((perPage * pageNumber) - perPage).limit(perPage).exec(function (err, allCampgrounds) {
             Campground.count().exec(function (err, count) {
                 if(err) {
                     console.log(err);
