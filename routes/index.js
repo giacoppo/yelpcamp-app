@@ -22,16 +22,22 @@ router.get('/register' , function(req, res) {
 router.post('/register', function(req, res) {
     // res.send('Signing You Up!');
     var newUser = new User({
-            username: req.body.username,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            desc: req.body.desc,
-            avatar: req.body.avatar
-        });
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        desc: req.body.desc,
+        avatar: req.body.avatar
+    });
     // eval(require('locus'));
     if(req.body.adminCode === 'secretcode123') {
         newUser.isAdmin = true;
+    }
+    if(req.body.userCode === 'plopperdeplop68') {
+        newUser.isUser = true;
+    } else {
+      req.flash('error','You need to set your User Code');
+      return res.redirect('back');
     }
     User.register(newUser, req.body.password, function(err, user) {
         if(err) {
