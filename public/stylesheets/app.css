@@ -6316,6 +6316,14 @@ footer {
 .close span {
   line-height: 1.1rem; }
 
+.jumbotron {
+  background: #E55D87;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #5FC3E4, #E55D87);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #5FC3E4, #E55D87);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */ }
+
 .bg-light {
   background-color: #0080A4 !important; }
   .bg-light a {
