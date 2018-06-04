@@ -1,7 +1,6 @@
 var express         = require('express'),
     app             = express(),
     bodyParser      = require('body-parser'),
-    jquery          = require('jquery');
     mongoose        = require('mongoose'),
     flash           = require('connect-flash'),
     passport        = require('passport'),
@@ -63,5 +62,5 @@ app.use('/campgrounds/:id/comments', commentRoutes);
 // reload(app);
 
 app.listen(port, function() {
-    console.log('The YelpCamp app runs on PORT ' + port + ' now');
+    console.log('The YelpCamp app runs on PORT ' + port);
 });

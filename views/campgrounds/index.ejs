@@ -20,7 +20,7 @@
                         <h1>Welcome to YelpCamp!</h1>
                         <p>View our hand-picked campgrounds from all over the world</p>
                         <p>
-                            <a class="btn btn-primary btn-lg" href="/campgrounds/new">Add New Campground</a>
+                            <a class="btn btn-warning btn-lg" href="/campgrounds/new">Add New Campground</a>
                         </p>
                     </div>
                 </header>
@@ -52,6 +52,17 @@
         <% } %>
 
         <% if(!currentUser) { %>
+        <div class="row text-center">
+            <div class="col-md-5">
+                <a class="btn btn-primary btn-block" href="/login">Login</a>
+            </div>
+            <div class="col-md-2 py-1">
+                <span>&nbsp;&nbsp;or&nbsp;&nbsp;</span>
+            </div>
+            <div class="col-md-5">
+                <a class="btn btn-success btn-block" href="/register">Sign up</a>
+            </div>
+        </div>
         <% } else { %>
         <div class="row">
             <% campgrounds.forEach(function(campground) { %>
