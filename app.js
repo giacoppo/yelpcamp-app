@@ -1,8 +1,7 @@
-// var reload = require('reload');
-
 var express         = require('express'),
     app             = express(),
     bodyParser      = require('body-parser'),
+    jquery          = require('jquery');
     mongoose        = require('mongoose'),
     flash           = require('connect-flash'),
     passport        = require('passport'),
@@ -27,6 +26,9 @@ var port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine','ejs');
 app.use(express.static(__dirname + '/public'));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+app.use('/popper', express.static(__dirname + '/node_modules/popper.js/dist/'));
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/js/'));
 app.use(methodOverride('_method'));
 app.use(flash());
 
@@ -61,5 +63,5 @@ app.use('/campgrounds/:id/comments', commentRoutes);
 // reload(app);
 
 app.listen(port, function() {
-    console.log('The YelpCamp app runs on PORT ' + port);
+    console.log('The YelpCamp app runs on PORT ' + port + ' now');
 });
